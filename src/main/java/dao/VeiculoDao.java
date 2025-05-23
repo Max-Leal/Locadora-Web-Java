@@ -17,7 +17,7 @@ public class VeiculoDao {
 		List<Veiculo> lista = new ArrayList<>();
 		try {
 		
-			String sql = "SELECT * FROM tb_veiculo";
+			String sql = "SELECT * FROM tb_veiculos";
 			Connection con = ConexaoDB.getConexao();
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
@@ -41,7 +41,7 @@ public class VeiculoDao {
 		
 		try {
 			
-			String sql = "INSERT INTO tb_veiculo (placa, marca, modelo, ano, preco_diaria) VALUES (?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO tb_veiculos (placa, marca, modelo, ano, preco_diaria) VALUES (?, ?, ?, ?, ?)";
 			Connection con = ConexaoDB.getConexao();
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, v.getPlaca());
