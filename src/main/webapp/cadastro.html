@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+	<h1>Novo cliente</h1>
+	<hr />
+	<div>
+		<a href="index.html"> Home </a> <a href="consulta.jsp"> Consulta de clientes </a>
+	</div>
+	<form id="fcad" action="cadastro.jsp" method="POST">
+		<label for="nome">Informe nome</label> <input type="text" id="nome"
+			name="nome" placeholder="EX: maria" /> <label for="email">Informe
+			email</label> <input type="email" id="email" name="email"
+			placeholder="EX: maria@gmail.com" /> <label for="fone">Informe
+			fone</label> <input type="tel" id="fone" name="fone"
+			placeholder="EX: (99)999-9999" /> <input type="button"
+			value="salvar" onclick="gravar()" />
+	</form>
+
+	<script>
+	    function gravar(){
+	    	var nome = document.getElementById("nome")
+	    	if(nome.value === ""){
+	    		alert("O nome deve ser informado")
+	    		nome.focus()
+	    		return
+	    	}
+	    	
+	    	var email = document.getElementById("email")
+	    	if(email.value === ""){
+	    		alert("O email deve ser informado")
+	    		email.focus()
+	    		return
+	    	}
+	    	
+	    	var fone = document.getElementById("fone")
+	    	if(fone.value === ""){
+	    		alert("O fone deve ser informado")
+	    		fone.focus()
+	    		return
+	    	}
+	    	
+	    	document.getElementById("fcad").submit()
+	    	
+	    }
+	    
+	</script>
+</body>
+</html>

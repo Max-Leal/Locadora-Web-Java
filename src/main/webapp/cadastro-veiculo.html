@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de veículo</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+
+<body>
+    <h1>Novo veículo</h1>
+    <hr />
+    <div>
+        <a href="index.html"> Home </a>
+        <a href="consulta-veiculo.jsp"> Consulta de Veículos </a>
+    </div>
+    <form id="fcad" action="cadastro-veiculo.jsp" method="POST">
+        <label for="placa">Informe a placa</label>
+        <input type="text" id="placa" name="placa" placeholder="EX: ABC-1234" />
+        <label for="marca">Informe a marca</label>
+        <input type="text" id="marca" name="marca" placeholder="EX: Fiat" />
+        <label for="modelo">Informe o modelo</label>
+        <input type="text" id="modelo" name="modelo" placeholder="EX: Uno" />
+        <label for="ano">Informe o ano</label>
+        <input type="number" id="ano" name="ano" placeholder="EX: 2020" />
+        <label for="precoDiaria">Informe o preço da diária</label>
+        <input type="number" id="precoDiaria" name="precoDiaria" placeholder="EX: 99.90" step="0.01" />
+        <input type="button" value="salvar" onclick="gravar()" />
+    </form>
+
+    <script>
+        function gravar() {
+            var placa = document.getElementById("placa");
+            if (placa.value === "") {
+                alert("A placa deve ser informada");
+                placa.focus();
+                return;
+            }
+            var marca = document.getElementById("marca");
+            if (marca.value === "") {
+                alert("A marca deve ser informada");
+                marca.focus();
+                return;
+            }
+            var modelo = document.getElementById("modelo");
+            if (modelo.value === "") {
+                alert("O modelo deve ser informado");
+                modelo.focus();
+                return;
+            }
+            var ano = document.getElementById("ano");
+            if (ano.value === "") {
+                alert("O ano deve ser informado");
+                ano.focus();
+                return;
+            }
+            var precoDiaria = document.getElementById("precoDiaria");
+            if (precoDiaria.value === "") {
+                alert("O preço da diária deve ser informado");
+                precoDiaria.focus();
+                return;
+            }
+            document.getElementById("fcad").submit();
+        }
+    </script>
+</body>
+
+</html>
