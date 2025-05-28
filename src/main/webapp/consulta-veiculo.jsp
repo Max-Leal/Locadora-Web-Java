@@ -21,7 +21,9 @@
 			Cadastro de veículos</a>
 	</div>
 	<hr />
-	
+	<div>
+	<input id="pesquisa" type="text" placeholder="Pesquisar por placa" onkeydown="pesquisarPorPlaca()">
+	</div>
 	<table>
 		<thead>
 			<tr>
@@ -53,6 +55,24 @@
 		</tbody>
 
 	</table>
+	
+	<script>
+	function pesquisarPorPlaca() {
+
+    let textoPesquisa = document.getElementById("pesquisa").value.toLowerCase();
+    let linhas = document.querySelectorAll("table tbody tr");
+
+    linhas.forEach(linha => {
+        let textoPlaca = linha.cells[1].textContent.toLowerCase();
+        if (textoPlaca.includes(textoPesquisa) || textoPesquisa === "") {
+            linha.style.display = "";
+        } else {
+            linha.style.display = "none";
+        }
+    });
+}
+	
+	</script>
 </body>
 
 </html>

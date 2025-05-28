@@ -9,7 +9,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Consulta de clientes</title>
 <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 
@@ -28,6 +28,7 @@
 				<th>Nome</th>
 				<th>Email</th>
 				<th>Fone</th>
+				<th>Editar</th>
 			</tr>
 
 		</thead>
@@ -42,6 +43,7 @@
 				out.print("<td>" + c.getNome() + "</td>");
 				out.print("<td>" + c.getEmail() + "</td>");
 				out.print("<td>" + c.getFone() + "</td>");
+				out.print("<td><a href='./editar.jsp?id="+c.getId()+"'>editar</a></td>");
 				out.print("</tr>");
 			}
 			%>
