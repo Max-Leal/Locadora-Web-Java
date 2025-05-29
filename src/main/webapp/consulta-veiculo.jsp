@@ -33,6 +33,8 @@
 				<th>Modelo</th>
 				<th>Ano</th>
 				<th>Preço diária</th>
+				<th>Editar</th>
+				<th>Excluir</th>
 			</tr>
 
 		</thead>
@@ -49,6 +51,8 @@
 				out.print("<td>" + v.getModelo() + "</td>");
 				out.print("<td>" + v.getAno() + "</td>");
 				out.print("<td>" + v.getPrecoDiaria() + "</td>");
+				out.print("<td><a href='editar-veiculo.jsp?id=" + v.getId() + "'>editar</a></td>");
+				out.print("<td><button class='excluir' onclick='excluir(" + v.getId() + ")'>excluir</button></td>");
 				out.print("</tr>");
 			}
 			%>
@@ -71,6 +75,12 @@
         }
     });
 }
+	
+	function excluir(id) {
+		if (confirm("Tem certeza que deseja excluir este veículo?")) {
+			window.location.href = "excluir-veiculo.jsp?id=" + id;
+		}
+	}
 	
 	</script>
 </body>

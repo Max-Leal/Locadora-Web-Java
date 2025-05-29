@@ -11,8 +11,7 @@
    
    Veiculo veiculo = new Veiculo(placa,marca,modelo,ano,precoDiaria);
    
-  // ClienteDao clidao = new ClienteDao();
-   //ClienteControler cliControler = new ClienteControler(clidao);
+ 
    VeiculoControler veiControler = new VeiculoControler();
    veiControler.salvar(veiculo);
    response.sendRedirect("consulta-veiculo.jsp");
