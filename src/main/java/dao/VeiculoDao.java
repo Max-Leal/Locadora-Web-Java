@@ -54,4 +54,44 @@ public class VeiculoDao {
 			e.printStackTrace();
 		}
 	}
+
+	public static void alterar(Veiculo v) {
+		try {
+			String sql = "UPDATE tb_veiculos SET placa = ?, marca = ?, modelo = ?, ano = ?, preco_diaria = ? WHERE id = ?";
+			Connection con = ConexaoDB.getConexao();
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, v.getPlaca());
+			ps.setString(2, v.getMarca());
+			ps.setString(3, v.getModelo());
+			ps.setInt(4, v.getAno());
+			ps.setDouble(5, v.getPrecoDiaria());
+			ps.setInt(6, v.getId());
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static Veiculo getVeiculoById(int id) {
+		Veiculo v = null;
+		try {
+			String sql = "SELECT * FROM tb_veiculos WHERE id = ?";
+			Connection con = ConexaoDB.getConexao();
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				v = new Veiculo();
+				v.setId(rs.getInt("id"));
+				v.setPlaca(rs.getString("placa"));
+				v.setMarca(rs.getString("marca"));
+				v.setModelo(rs.getString("modelo"));
+				v.setAno(rs.getInt("ano"));
+				v.setPrecoDiaria(rs.getDouble("preco_diaria"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return v;
+	}
 }

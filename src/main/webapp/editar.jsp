@@ -46,15 +46,16 @@
 		</div>
 		<form id="fcad" action="editar.jsp" method="POST">
 			<input type="hidden" id="id" name="id" value=<%out.print(cliente.getId());%> />
-			<label for="nome">Informe nome</label> <input type="text" id="nome"
+			<label for="nome">Informe nome</label> 
+			<input type="text" id="nome"
 				name="nome" placeholder="EX: maria"
-				value=<%= cliente.getNome() %> /> <label for="email">Informe
+				value="<%out.print(cliente.getNome());%>" /> <label for="email">Informe
 				email</label> <input type="email" id="email" name="email"
 				placeholder="EX: maria@gmail.com"
-				value=<%= cliente.getEmail() %> /> <label for="fone">Informe
+				value="<%out.print(cliente.getEmail());%>" /> <label for="fone">Informe
 				fone</label> <input type="tel" id="fone" name="fone"
 				placeholder="EX: (99)999-9999"
-				value=<%= cliente.getFone() %> /> 
+				value="<%out.print(cliente.getFone());%>" /> 
 				<input type="button"value="salvar" onclick="gravar()" />
 		</form>
 	</div>
