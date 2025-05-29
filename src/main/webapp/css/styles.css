@@ -9,6 +9,8 @@
     --border: #e0e3ea;
     --input-bg: #f3f6fa;
     --input-border: #b0b8c1;
+    --card-bg: #fff;
+    --card-shadow: 0 4px 24px rgba(34,58,94,0.10);
 }
 
 html, body {
@@ -24,6 +26,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 h1, h3 {
@@ -32,26 +35,111 @@ h1, h3 {
     margin-bottom: 20px;
     font-weight: 700;
     letter-spacing: 1px;
+    text-align: center;
 }
 
 hr {
     border: 0;
     height: 2px;
     background: var(--primary);
-    margin: 24px 0;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 24px auto;
+    width: 80%;
     opacity: 0.15;
+}
+
+.excluir {
+    background: #e53935;
+    color: #fff;
+    border: none;
+    padding: 6px 18px;
+    border-radius: 6px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(229,57,53,0.10);
+}
+
+.excluir:hover, .excluir:focus {
+    background: #b71c1c;
+    color: #fff;
+}
+
+
+.pesquisa {
+	width: 100%;
 }
 
 .container, .main-content {
     max-width: 600px;
     margin: 32px auto;
-    background: #fff;
+    background: var(--card-bg);
     padding: 36px 40px 32px 40px;
-    border-radius: 14px;
-    box-shadow: 0 4px 24px rgba(34,58,94,0.08);
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+    margin: 32px 0;
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    padding: 32px 36px 28px 36px;
+    min-width: 240px;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.18s, box-shadow 0.18s;
+    border: 2px solid transparent;
+}
+
+.card:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 8px 32px rgba(34,58,94,0.13);
+    border: 2px solid var(--accent);
+}
+
+.card h3 {
+    margin-bottom: 18px;
+    font-size: 1.25em;
+}
+
+.card a {
+    display: block;
+    width: 100%;
+    background: var(--primary);
+    color: var(--text-light);
+    text-align: center;
+    padding: 12px 0;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(34,58,94,0.06);
+    border: 1.5px solid transparent;
+}
+
+.card a:last-child {
+    margin-bottom: 0;
+}
+
+.card a:hover, .card a:focus {
+    background: var(--accent);
+    color: var(--primary);
+    border: 1.5px solid var(--primary);
 }
 
 a {
@@ -74,6 +162,8 @@ form {
     flex-direction: column;
     gap: 18px;
     margin-top: 18px;
+    width: 100%;
+    align-items: center;
 }
 
 label {
@@ -81,6 +171,7 @@ label {
     color: var(--primary);
     margin-bottom: 4px;
     letter-spacing: 0.5px;
+    align-self: flex-start;
 }
 
 input[type="text"],
@@ -94,6 +185,8 @@ input[type="number"] {
     background: var(--input-bg);
     transition: border-color 0.2s, box-shadow 0.2s;
     outline: none;
+    width: 100%;
+    margin-bottom: 8px;
 }
 
 input[type="text"]:focus,
@@ -116,6 +209,7 @@ input[type="button"], input[type="submit"] {
     margin-top: 10px;
     transition: background 0.2s, box-shadow 0.2s;
     box-shadow: 0 2px 8px rgba(255,152,0,0.08);
+    width: 100%;
 }
 
 input[type="button"]:hover, input[type="submit"]:hover {
@@ -170,6 +264,18 @@ input[type="search"], #pesquisa {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+@media (max-width: 900px) {
+    .menu-cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+    }
+    .card {
+        width: 90vw;
+        max-width: 400px;
+    }
 }
 
 @media (max-width: 700px) {

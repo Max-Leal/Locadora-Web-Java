@@ -12,6 +12,22 @@ import util.ConexaoDB;
 
 public class ClienteDao {
 	
+	public static void excluir(int id) {
+		try {
+			Connection con = ConexaoDB.getConexao();
+			String sql = "delete from tb_clientes where id=?";
+			PreparedStatement stm = con.prepareStatement(sql);
+			stm.setInt(1, id);
+			stm.execute();
+			
+			stm.close();
+			con.close();
+		} catch (Exception e) {
+			throw new RuntimeException(e.getMessage());
+		}
+	}
+	
+	
 	public static void alterar(Cliente clienteAlterado) {
 		try {
 			Connection con = ConexaoDB.getConexao();

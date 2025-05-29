@@ -22,7 +22,7 @@
 	</div>
 	<hr />
 	<div>
-	<input id="pesquisa" type="text" placeholder="Pesquisar por placa" onkeydown="pesquisarPorPlaca()">
+	<input class="pesquisa" id="pesquisa" type="text" placeholder="Pesquisar por placa" onkeydown="pesquisarPorPlaca()">
 	</div>
 	<table>
 		<thead>
