@@ -40,7 +40,7 @@
 		</thead>
 		<tbody>
 			<%
-			// ClienteDao clidao=new ClienteDao(); // ClienteControler cliControler=new
+			
 			VeiculoControler veiControler = new VeiculoControler();
 			List<Veiculo> veiculos = veiControler.getAll();
 			for (Veiculo v : veiculos) {
