@@ -21,7 +21,7 @@
 			Cadastro de veículos</a>
 	</div>
 	<hr />
-	<div>
+	<div class="pesquisa">
 	<input class="pesquisa" id="pesquisa" type="text" placeholder="Pesquisar por placa" onkeydown="pesquisarPorPlaca()">
 	</div>
 	<table>

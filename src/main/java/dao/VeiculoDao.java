@@ -12,6 +12,28 @@ import util.ConexaoDB;
 
 public class VeiculoDao {
 
+    public static int getIdByPlaca(String placa) {
+        int id = 0;
+        try {
+            Connection con = ConexaoDB.getConexao();
+            String sql = "SELECT id FROM tb_veiculos WHERE placa=?";
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, placa);
+            ResultSet rs = stm.executeQuery();
+
+            if (rs.next()) {
+                id = rs.getInt("id");
+            }
+
+            rs.close();
+            stm.close();
+            con.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());
+        }
+        return id;
+    }
+
     public static void excluir(int id) {
         try {
             Connection con = ConexaoDB.getConexao();

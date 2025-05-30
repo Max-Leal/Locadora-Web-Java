@@ -11,6 +11,28 @@ import modelos.Cliente;
 import util.ConexaoDB;
 
 public class ClienteDao {
+
+	public static int getIdByNome(String name) {
+		int id = 0;
+		try {
+			Connection con = ConexaoDB.getConexao();
+			String sql = "select id from tb_clientes where nome=?";
+			PreparedStatement stm = con.prepareStatement(sql);
+			stm.setString(1, name);
+			ResultSet rs = stm.executeQuery();
+			
+			if(rs.next()) {
+				id = rs.getInt("id");
+			}
+			
+			rs.close();
+			stm.close();
+			con.close();
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		}
+		return id;
+	}
 	
 	public static void excluir(int id) {
 		try {

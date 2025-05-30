@@ -47,6 +47,13 @@ hr {
     opacity: 0.15;
 }
 
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 100%;
+}
+
 .excluir {
     background: #e53935;
     color: #fff;

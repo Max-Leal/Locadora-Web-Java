@@ -1,10 +1,69 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
 
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de locação</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+
+<body>
+    <h1>Nova Locação</h1>
+    <hr />
+    <div>
+        <a href="index.html"> Home </a>
+        <a href="consulta-locacao.jsp"> Consulta de Locações </a>
+    </div>
+    <form id="fcad" action="cadastro-locacao.jsp" method="POST">
+        <label for="placa">Placa do veículo</label>
+        <input type="text" id="placa" name="placa" placeholder="EX: ABC-1234" onblur="verificarNome()" />
+
+        <label for="nomeCliente">Nome do cliente</label>
+        <input type="text" id="nomeCliente" name="nomeCliente" placeholder="EX: João da Silva" />
+
+        <label for="dataInicial">Data inicial da locação</label>
+        <input type="date" id="dataInicial" name="dataInicial" />
+
+        <label for="dataFim">Data final da locação</label>
+        <input type="date" id="dataFim" name="dataFim" />
+
+        <input type="button" value="Salvar" onclick="gravar()" />
+    </form>
+
+    <script>
+     function gravar() {
+        var placa = document.getElementById("placa");
+        if (placa.value === "") {
+            alert("A placa deve ser informada");
+            placa.focus();
+            return;
+        }
+        var nomeCliente = document.getElementById("nomeCliente");
+        if (nomeCliente.value === "") {
+            alert("O nome do cliente deve ser informado");
+            nomeCliente.focus();
+            return;
+        }
+        var dataInicial = document.getElementById("dataInicial");
+        if (dataInicial.value === "") {
+            alert("A data inicial deve ser informada");
+            dataInicial.focus();
+            return;
+        }
+        var dataFim = document.getElementById("dataFim");
+        if (dataFim.value === "") {
+            alert("A data final deve ser informada");
+            dataFim.focus();
+            return;
+        }
+        if (dataFim.value < dataInicial.value) {
+            alert("A data final não pode ser menor que a data inicial");
+            dataFim.focus();
+            return;
+        }
+        document.getElementById("fcad").submit();
+    }
+    </script>
 </body>
+
 </html>
