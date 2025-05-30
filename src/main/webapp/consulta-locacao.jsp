@@ -54,7 +54,7 @@
 				out.print("<td>" + l.getDataInicio() + "</td>");
 				out.print("<td>" + l.getDataFim() + "</td>");
 				out.print("<td>" + l.getValorTotal() + "</td>");
-				out.print("<td><a href='editar-veiculo.jsp?id=" + l.getId() + "'>editar</a></td>");
+				out.print("<td><a href='editar-locacao.jsp?id=" + l.getId() + "'>editar</a></td>");
 				out.print("<td><button class='excluir' onclick='excluir(" + l.getId() + ")'>excluir</button></td>");
 				out.print("</tr>");
 			}
