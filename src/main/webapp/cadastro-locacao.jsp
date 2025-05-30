@@ -29,20 +29,26 @@
     int idCliente = ClienteDao.getIdByNome(nomeCliente);
 
     if (idVeiculo == 0) {
-        out.println("<script>alert('Veículo não encontrado! Cadastre o veículo primeiro.'); window.location.href='cadastro-veiculo.html';</script>");
+        out.println("<script>alert('Ve�culo n�o encontrado! Cadastre o ve�culo primeiro.'); window.location.href='cadastro-veiculo.html';</script>");
         return;
     }
     if (idCliente == 0) {
-        out.println("<script>alert('Cliente não encontrado! Cadastre o cliente primeiro.'); window.location.href='cadastro-cliente.html';</script>");
+        out.println("<script>alert('Cliente n�o encontrado! Cadastre o cliente primeiro.'); window.location.href='cadastro-cliente.html';</script>");
         return;
     }
 
     if (dataFim.before(dataInicial)) {
-        out.println("<script>alert('A data de fim não pode ser anterior à data de início!'); window.location.href='cadastro-locacao.html';</script>");
+        out.println("<script>alert('A data de fim n�o pode ser anterior � data de in�cio!'); window.location.href='cadastro-locacao.html';</script>");
         return;
     }
+    
+   double precoDiario = VeiculoDao.getPrecoDiariaById(idVeiculo);
+   long diffMillis = dataFim.getTime() - dataInicial.getTime();
+   int dias = (int) Math.ceil(diffMillis / (1000.0 * 60 * 60 * 24));
+   if (dias <= 0) dias = 1;
+   double valorTotal = precoDiario * dias;
 
-    Locacao locacao = new Locacao(idCliente, idVeiculo, dataInicial, dataFim, 0.0);
+    Locacao locacao = new Locacao(idCliente, idVeiculo, dataInicial, dataFim, valorTotal);
 
     LocacaoControler locacaoControler = new LocacaoControler();
     locacaoControler.salvar(locacao);

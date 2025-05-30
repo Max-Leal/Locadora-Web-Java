@@ -12,6 +12,28 @@ import util.ConexaoDB;
 
 public class VeiculoDao {
 
+    public static double getPrecoDiariaById(int id) {
+        double precoDiaria = 0.0;
+        try {
+            Connection con = ConexaoDB.getConexao();
+            String sql = "SELECT preco_diaria FROM tb_veiculos WHERE id=?";
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setInt(1, id);
+            ResultSet rs = stm.executeQuery();
+
+            if (rs.next()) {
+                precoDiaria = rs.getDouble("preco_diaria");
+            }
+
+            rs.close();
+            stm.close();
+            con.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());
+        }
+        return precoDiaria;
+    }
+
     public static int getIdByPlaca(String placa) {
         int id = 0;
         try {
