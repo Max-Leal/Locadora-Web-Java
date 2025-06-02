@@ -16,6 +16,7 @@
             String placa = request.getParameter("placa");
             String nome = request.getParameter("nome");
             String modelo = request.getParameter("modelo");
+            String marca = request.getParameter("marca");
             String ano = request.getParameter("ano");
             String preco_diaria = request.getParameter("preco_diaria");
             
